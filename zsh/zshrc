@@ -5,17 +5,18 @@ promptinit
 prompt adam1
 
 setopt histignorealldups sharehistory
-cd /mnt/ramdisk/
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
 # aliases
 alias list='ls --ignore="*."{m3u,txt} > play.m3u'
-alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get autoremove && sudo yt-dlp -U"
+alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get autoremove && yt-dlp -U"
 alias images='for file in *.heic; do heif-convert $file ${file/%.heic/.jpg}; done'
 alias yt22="yt-dlp -f 22/best --sub-lang en --write-auto-sub --embed-subs -a list.txt"
 alias uxplay='(cd ~/Documents/UxPlay-master; ./uxplay)'
+alias play='swallow mpv'
+alias rd='cd /mnt/ramdisk/'
 
 # # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -47,5 +48,5 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-sudo/sudo.plugin.zsh
-#source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
